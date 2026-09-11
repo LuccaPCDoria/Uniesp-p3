@@ -1,6 +1,6 @@
 package br.com.Lucca.contas;
 
-public class ContaInvestimento extends Conta{
+public class ContaInvestimento extends Conta {
     private double taxa;
     private int prazo;
 
@@ -27,5 +27,25 @@ public class ContaInvestimento extends Conta{
 
     public void setPrazo(int prazo) {
         this.prazo = prazo;
+    }
+
+    // Metodo para calcular o rendimento
+    public double calcularRendimento() {
+        return saldo * (taxa / 100) * prazo;
+    }
+
+    // Metodo para calcular o saldo após o investimento
+    public double saldoComRendimento() {
+        return saldo + calcularRendimento();
+    }
+
+
+    public boolean investir(double valor) {
+        return deposito(valor);
+    }
+
+
+    public boolean resgatar(double valor) {
+        return saque(valor);
     }
 }
